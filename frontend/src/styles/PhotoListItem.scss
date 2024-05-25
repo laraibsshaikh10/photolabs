@@ -5,6 +5,9 @@
   overflow: hidden; /* Ensures the image is clipped to the border radius */
   // display: flex;
   // align-items: center;
+  border: solid lightgray 1px;
+  padding: 5px;
+  border-radius: 10px;
 }
 
 // .photo-list__image {
@@ -30,8 +33,7 @@
   height: 200px;
   object-fit: cover;
   overflow: hidden;
-  border: solid lightgray 5px;
-  padding: 5px;
+  
   border-radius: 8px 8px 8px 8px;
   user-select: none;
   width: 300px;
