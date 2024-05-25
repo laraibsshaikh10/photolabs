@@ -24,11 +24,7 @@ const App = () => {
 
       <PhotoListItem
         key={index}
-        id={photo.id}
-        location={photo.location}
-        imageSource={photo.imageSource}
-        username={photo.username}
-        profile={photo.profile}
+        photo={photo}
       />
       ))}
     </div>

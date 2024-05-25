@@ -5,7 +5,9 @@ import "../styles/PhotoListItem.scss";
 
 
 
-const PhotoListItem = ({id, location, imageSource, username, profile}) => {
+const PhotoListItem = ({photo}) => {
+  const { id, location, imageSource, username, profile } = photo;
+
   return (
     <div className="photo-list__item">
       <div className="photo-list-photo">
@@ -20,7 +22,7 @@ const PhotoListItem = ({id, location, imageSource, username, profile}) => {
           <p className="photo-list__user-location"> {location.city}, {location.country}</p>
         </div>
       </div>
-      
+
     </div>
  
     )
