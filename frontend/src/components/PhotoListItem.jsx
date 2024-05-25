@@ -7,7 +7,7 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = ({id, location, imageSource, username, profile}) => {
   return (
-    <div className="photo-list-item">
+    <div className="photo-list__item">
       <div className="photos">
       <img src={imageSource} alt={`Photo ${id}`} className="photo"/>
       </div>
