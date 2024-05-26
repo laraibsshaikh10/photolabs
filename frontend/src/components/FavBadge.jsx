@@ -15,7 +15,10 @@ const FavBadge = ({ count }) => {
   return (
     <div className='fav-badge'>
       <FavIcon selected={true}/>
-      {count > 0 && <div className="fav-badge__count"><span>{count}</span></div>}
+      {count > 0 && <div className="fav-badge__count"><span>{count}</span> 
+      </div>}
+     
+
     </div>
   );
 };

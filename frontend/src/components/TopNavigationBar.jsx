@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import TopicList from './TopicList';
 import '../styles/TopNavigationBar.scss';
 import FavBadge from './FavBadge';
@@ -12,5 +12,6 @@ const TopNavigation = ({topics, favourites}) => {
     </div>
   )
 }
+
 
 export default TopNavigation;
