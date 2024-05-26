@@ -9,11 +9,10 @@ import "../styles/TopicListItem.scss";
 // };
 
 const TopicListItem = ({topic}) => {
-  const {title} = topic;
   return (
     <div className="topic-list__item">
       <span>
-        {title}
+        {topic.title}
       </span>
 
     </div>
