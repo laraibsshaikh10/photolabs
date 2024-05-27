@@ -1,8 +1,10 @@
 import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
+import PhotoList from 'components/PhotoList';
 
-const PhotoDetailsModal = ({isOpen, onClose, photo}) => {
+const PhotoDetailsModal = ({isOpen, onClose, photo, photosData, favourites, toggleFavourite, onPhotoClick}) => {
+
   if (!isOpen || !photo) {
     return null;
   }
@@ -12,22 +14,29 @@ const PhotoDetailsModal = ({isOpen, onClose, photo}) => {
 return (
   <div className="photo-details-modal">
     <div className="modal-content">
-      <button className="close-button" onClick={onClose}>
+      <button className="photo-details-modal__close-button" onClick={onClose}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
       </div>
       
       <img src={photo.url} alt={photo.url} className="photo-details-image" />
       
-      <div className="profile-information-modal">
-
+      <div className="photo-details-modal__photographer-details">
+      
       <img src={photo.profilePic} alt="profile picture" 
       className="photo-list__user-profile"/>
-      <div>
-      <h2  className="photo-list__username">{photo.username}</h2>
+      
+      <p  className="photo-list__username">{photo.username}</p>
+      
+      </div>
+      
       <p className="photo-list__user-location">{photo.userLocation}</p>
-      </div>
-      </div>
+
+      <div className="photo-details-modal__images">
+        <h3>Similar Photos</h3>
+        
+        <PhotoList photos={photosData} favourites={favourites} toggleFavourite={toggleFavourite} onPhotoClick={onPhotoClick} />
+        </div>
   </div>
 );
 
