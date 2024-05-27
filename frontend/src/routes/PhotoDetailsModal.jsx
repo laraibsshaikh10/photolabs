@@ -2,6 +2,8 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
+import PropTypes from 'prop-types';
+
 
 const PhotoDetailsModal = ({isOpen, onClose, photo, photosData, favourites, toggleFavourite, onPhotoClick}) => {
 
@@ -40,6 +42,22 @@ return (
   </div>
 );
 
+};
+
+PhotoDetailsModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  photo: PropTypes.shape({
+    id: PropTypes.string,
+    url: PropTypes.string,
+    profilePic: PropTypes.string,
+    username: PropTypes.string,
+    userLocation: PropTypes.string
+  }),
+  photosData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  favourites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  toggleFavourite: PropTypes.func.isRequired,
+  onPhotoClick: PropTypes.func.isRequired
 };
 
 

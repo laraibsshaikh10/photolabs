@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
+import photosData from 'mocks/photos';
 
 const App = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -13,21 +12,24 @@ const App = () => {
 
   const toggleFavourite = (photo) => {
     setFavourites((previousFavourites) => {
-      if (previousFavourites.find(fav => fav.id === photo.id)) {
-        return previousFavourites.filter(fav => fav.id !== photo.id);
-      } else {
-        return [...previousFavourites, photo]
-      }
+      const isFavourite = previousFavourites.find(fav => fav.id === photo.id);
+      const updatedFavourite = isFavourite
+      ? previousFavourites.filter(fav => fav.id !== photo.id) 
+      : [...previousFavourites, photo];
+      
+      console.log('Favourites updated:', updatedFavourite);
+      return updatedFavourite;
     });
   };
 
   const fetchSimilarPhotos = (photoId) => {
     // Filter out the selected photo to simulate similar photos
-    return photos.filter(photo => photo.id !== photoId);
+    return photosData.filter(photo => photo.id !== photoId);
   };
 
   const handleOpenModal = (photo) => {
     const photoDetails = {
+      id: photo.id,
       url: photo.urls.regular,
       profilePic: photo.user.profile,
       username: photo.user.username,
@@ -50,9 +52,11 @@ const App = () => {
     <div className="App">
 
 
-      <HomeRoute onPhotoClick = {handleOpenModal} />
-      <PhotoDetailsModal isOpen={isModalOpen} onClose={handleCloseModal} photo={selectedPhoto} 
-      photosData={similarPhotos} // Assuming this prop is the one expected by PhotoList
+      <HomeRoute onPhotoClick = {handleOpenModal} favourites={favourites} toggleFavourite={toggleFavourite} />
+      <PhotoDetailsModal isOpen={isModalOpen} 
+      onClose={handleCloseModal} 
+      photo={selectedPhoto} 
+      photosData={similarPhotos} 
       favourites={favourites} 
       toggleFavourite={toggleFavourite} 
       onPhotoClick={handleOpenModal} 
