@@ -9,9 +9,15 @@ const App = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const handleOpenModal = (photo) => {
-    console.log("Opening modal with photo:", photo); 
+    const photoDetails = {
+      url: photo.urls.regular,
+      profilePic: photo.user.profile,
+      username: photo.user.username,
+      userLocation: `${photo.location.city}, ${photo.location.country}`
+    }
+    console.log("Opening modal with photo details:", photoDetails); 
+    setSelectedPhoto(photoDetails);
 
-    setSelectedPhoto(photo);
     setModalOpen(true);
   };
 
