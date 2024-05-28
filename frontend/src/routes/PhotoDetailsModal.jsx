@@ -3,6 +3,7 @@ import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PropTypes from 'prop-types';
+import PhotoFavButton from 'components/PhotoFavButton';
 
 
 const PhotoDetailsModal = ({isOpen, onClose, photo, photosData, favourites, toggleFavourite, onPhotoClick}) => {
@@ -20,19 +21,25 @@ return (
         <img src={closeSymbol} alt="close symbol" />
       </button>
       </div>
-      
-      <img src={photo.url} alt={photo.url} className="photo-details-image" />
-      
+      <div className="modal-photo">
+        <PhotoFavButton
+          photo={photo}
+          isFavourite={favourites}
+          toggleFavourite={toggleFavourite}
+        />
+        <img src={photo.url} alt={photo.url} className="photo-details-image" />
+      </div>
+
       <div className="photo-details-modal__photographer-details">
       
-      <img src={photo.profilePic} alt="profile picture" 
-      className="photo-list__user-profile"/>
-      
-      <p  className="photo-list__username">{photo.username}</p>
-      
+        <img src={photo.profilePic} alt="profile picture" 
+        className="photo-list__user-profile"/>
+
+        <div className="photo-details-modal__photographer-info">
+          <h3  className="photo-details-modal__photographer-profile">{photo.username}</h3>
+          <p className="photo-details-modal__photographer-location">{photo.userLocation}</p>
       </div>
-      
-      <p className="photo-list__user-location">{photo.userLocation}</p>
+    </div>
 
       <div className="photo-details-modal__images">
         <h3>Similar Photos</h3>
