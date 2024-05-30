@@ -22,6 +22,7 @@ const TopNavigation = ({topics, favourites, fetchPhotosByTopic}) => {
       <TopicList 
         topics={topics}
         onClickTopic={handleClickTopic} 
+        fetchPhotosByTopic={fetchPhotosByTopic}
       />
       <FavBadge 
         count={favCount}

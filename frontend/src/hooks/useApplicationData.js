@@ -19,8 +19,8 @@ const useApplicationData = () => {
   useEffect(() => {
     axios.get('/api/photos')
       .then(response => {
-        // console.log(response.data);  // Log the response to see the data
-        dispatch({ type: 'SET_PHOTO_DATA', payload: response.data });
+        console.log('photos', response.data);  // Log the response to see the data
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
       })
       .catch(error => {
         console.error('Error occurred while fetching photo data:', error);
@@ -29,8 +29,8 @@ const useApplicationData = () => {
 
       axios.get('/api/topics')
       .then(response => {
-        // console.log(response.data);  // Log the response to see the data
-        dispatch({ type: 'SET_TOPIC_DATA', payload: response.data });
+        console.log('topics', response.data);  // Log the response to see the data
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: response.data });
       })
       .catch(error => {
         console.error('Error occurred while fetching topic data:', error);
@@ -42,8 +42,8 @@ const useApplicationData = () => {
     console.log(`Fetching photos for topic: ${topicId}`); 
     axios.get(`http://localhost:8001/api/topics/photos/${topicId}`)
     .then(response => {
-      // console.log(response.data);  // Log the response to see the data
-      dispatch({ type: 'SET_TOPIC_DATA', payload: response.data });
+      console.log('photosbytopic', response.data);  // Log the response to see the data
+      dispatch({ type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: response.data });
     })
     .catch(error => {
       console.error('Error occurred while fetching photos by their topic:', error);
@@ -72,7 +72,8 @@ const useApplicationData = () => {
         url: photo.urls.regular,
         profilePic: photo.user.profile,
         username: photo.user.username,
-        userLocation: `${photo.location.city}, ${photo.location.country}`
+        userLocation: `${photo.location.city}, ${photo.location.country}`,
+        similar_photos: photo.similar_photos 
       }
     })
 

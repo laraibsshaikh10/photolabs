@@ -5,7 +5,8 @@ export const ACTIONS = {
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
-  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
+  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
+  SET_PHOTOS_BY_TOPIC: 'SET_PHOTOS_BY_TOPIC'
 }
 
 function reducer(state, action) {
@@ -26,6 +27,12 @@ function reducer(state, action) {
       return {
         ...state,
         photosData: action.payload
+      };
+
+    case ACTIONS.SET_PHOTOS_BY_TOPIC:
+      return {
+      ...state,
+        photosData: action.payload // Assuming you want to replace photosData with the new set
       };
 
     case ACTIONS.SET_TOPIC_DATA:

@@ -4,7 +4,7 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton({ photo, isFavourite, toggleFavourite }) {
-
+  // console.log('isFavourite', isFavourite);
   return (
    
    <div className={`photo-fav-button ${isFavourite ? 'photo-fav-button__active' : ''}`}

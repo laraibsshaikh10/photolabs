@@ -1,5 +1,4 @@
 import React from "react";
-
 import "../styles/TopicListItem.scss";
 
 // const sampleDataForTopicListItem = {
@@ -8,11 +7,13 @@ import "../styles/TopicListItem.scss";
 //   label: "Nature",
 // };
 
-const TopicListItem = ({topic}) => {
+const TopicListItem = ({topic, fetchPhotosByTopic}) => {
+
   return (
-    <div className="topic-list__item">
-      <span>
+    <div className="topic-list__item" onClick={()=> fetchPhotosByTopic(topic.id)}>
+      <span >
         {topic.title}
+
       </span>
 
     </div>

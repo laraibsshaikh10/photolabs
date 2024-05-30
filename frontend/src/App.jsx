@@ -43,7 +43,6 @@ const App = () => {
         isOpen={isModalOpen} 
         onClose={handleCloseModal} 
         photo={selectedPhoto} 
-        photosData={similarPhotos} 
         favourites={favourites} 
         toggleFavourite={toggleFavourite} 
         onPhotoClick={handleOpenModal} 
