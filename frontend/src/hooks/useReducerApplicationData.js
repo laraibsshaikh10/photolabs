@@ -28,6 +28,12 @@ function reducer(state, action) {
         photosData: action.payload
       };
 
+    case ACTIONS.SET_TOPIC_DATA:
+      return {
+        ...state,
+        topicsData: action.payload
+      };
+
     case ACTIONS.SELECT_PHOTO:
       return {
         ...state,
@@ -52,6 +58,7 @@ function reducer(state, action) {
 
     
     default:
+      return state;
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
       );

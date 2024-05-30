@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import photosData from 'mocks/photos';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
@@ -11,7 +10,9 @@ const App = () => {
     isModalOpen,
     selectedPhoto,
     similarPhotos,
-    favourites
+    favourites,
+    photosData,
+    topicsData
   },
   handleOpenModal,
   toggleFavourite,
@@ -22,14 +23,21 @@ const App = () => {
     <div className="App">
 
 
-      <HomeRoute onPhotoClick = {handleOpenModal} favourites={favourites} toggleFavourite={toggleFavourite} />
-      <PhotoDetailsModal isOpen={isModalOpen} 
-      onClose={handleCloseModal} 
-      photo={selectedPhoto} 
-      photosData={similarPhotos} 
-      favourites={favourites} 
-      toggleFavourite={toggleFavourite} 
-      onPhotoClick={handleOpenModal} 
+      <HomeRoute 
+        onPhotoClick = {handleOpenModal} 
+        favourites={favourites} 
+        toggleFavourite={toggleFavourite}
+        photosData={photosData} 
+        topicsData={topicsData}
+      />
+      <PhotoDetailsModal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+        photo={selectedPhoto} 
+        photosData={similarPhotos} 
+        favourites={favourites} 
+        toggleFavourite={toggleFavourite} 
+        onPhotoClick={handleOpenModal} 
        />
     </div>
   );
