@@ -38,6 +38,18 @@ const useApplicationData = () => {
   }, []);  // Empty dependency array to ensure this runs only once
 
 
+  const fetchPhotosByTopic = (topicId) => {
+    console.log(`Fetching photos for topic: ${topicId}`); 
+    axios.get(`http://localhost:8001/api/topics/photos/${topicId}`)
+    .then(response => {
+      // console.log(response.data);  // Log the response to see the data
+      dispatch({ type: 'SET_TOPIC_DATA', payload: response.data });
+    })
+    .catch(error => {
+      console.error('Error occurred while fetching photos by their topic:', error);
+    });
+  }
+
   const toggleFavourite = (photoId) => {
       const isFavourite = state.favourites.includes(photoId);
       dispatch({
@@ -46,6 +58,7 @@ const useApplicationData = () => {
       });
  
   };
+
 
   // const fetchSimilarPhotos = (photoId) => {
   //   return photosData.filter(photo => photo.id !== photoId);
@@ -76,7 +89,8 @@ const useApplicationData = () => {
     
     state,
     handleOpenModal,
-    toggleFavourite: toggleFavourite,
+    toggleFavourite,
+    fetchPhotosByTopic,
     handleCloseModal
 
   }

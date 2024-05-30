@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import TopNavigation from 'components/TopNavigationBar';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
+
  const {
   state: {
     isModalOpen,
@@ -14,6 +16,7 @@ const App = () => {
     photosData,
     topicsData
   },
+  fetchPhotosByTopic,
   handleOpenModal,
   toggleFavourite,
   handleCloseModal
@@ -21,15 +24,21 @@ const App = () => {
   return (
 
     <div className="App">
-
+      {/* <TopNavigation 
+        topics={topicsData}
+        fetchPhotosByTopic={fetchPhotosByTopic} */}
+      {/* /> */}
+     
 
       <HomeRoute 
         onPhotoClick = {handleOpenModal} 
         favourites={favourites} 
         toggleFavourite={toggleFavourite}
         photosData={photosData} 
-        topicsData={topicsData}
+        topicsData={topicsData} 
+        fetchPhotosByTopic={fetchPhotosByTopic}
       />
+     
       <PhotoDetailsModal 
         isOpen={isModalOpen} 
         onClose={handleCloseModal} 

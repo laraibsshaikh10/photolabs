@@ -55,7 +55,7 @@ PhotoDetailsModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   photo: PropTypes.shape({
-    id: PropTypes.string,
+    id: PropTypes.number,
     url: PropTypes.string,
     profilePic: PropTypes.string,
     username: PropTypes.string,

@@ -3,17 +3,28 @@ import TopicList from './TopicList';
 import '../styles/TopNavigationBar.scss';
 import FavBadge from './FavBadge';
 
-
-
-const TopNavigation = ({topics, favourites}) => {
+const TopNavigation = ({topics, favourites, fetchPhotosByTopic}) => {
   const favCount = favourites ? favourites.length : 0;
+
+  const handleClickTopic = (topicId)=> {
+    console.log(`Topic clicked: ${topicId}`);
+    fetchPhotosByTopic(topicId);
+  }
 
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList topics={topics} />
+      {topics.map(topic => { 
+        <div key={topic.id} className="top-nav-bar__topic" onClick={() => handleClickTopic(topic.id)}>
+        {topic.title} 
+          </div>
+       })}
+      <TopicList 
+        topics={topics}
+        onClickTopic={handleClickTopic} 
+      />
       <FavBadge 
-      count={favCount}
+        count={favCount}
       />
     </div>
   )
