@@ -1,5 +1,5 @@
-# react-photolabs
-The PhotoLabs is a React-based single-page application (SPA) that allows users to view photos by various categories. It enables a user to like images and click on the photos to make the photo in a modal.
+# React Photolabs
+PhotoLabs is a React-based single-page application (SPA) that allows users to view photos by various categories. It enables a user to like images and click on the photos to make the photo in a modal.
 
 ## Description
 PhotoLabs is a client-side application that enables users to interact with photos through a React-based interface. The application allows users to view photos, navigate through different photo categories (topics), and perform various actions such as liking photos. It communicates with a backend API to fetch and persist data.
