@@ -13,8 +13,8 @@ The goal of this project is to create a client-side application using React libr
 - Server-Side Development: 
   - PostgreSQL database is used to store the application data
   - The API server is build using node.js Express application
-- API Communication: 
-  -The client communicates with the API over HTTP using JSON format.
+- API Communication:
+  - The client communicates with the API over HTTP using JSON format.
 
 ## Behavioural Requirements
 - User can view a list of photos on their homepage located from the API
@@ -65,6 +65,10 @@ npm start
 - Open browser and navigate to http://localhost:3000
 - The client side server runs on port 3000
 - The API server runs on port 8001
+
+## Author
+- Lighthouse Labs provided the original base code
+- Laraib Shaikh
 
 ## License
 This project is licensed under the MIT License.
