@@ -19,7 +19,6 @@ const useApplicationData = () => {
   useEffect(() => {
     axios.get('/api/photos')
       .then(response => {
-        console.log('photos', response.data);  // Log the response to see the data
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
       })
       .catch(error => {
@@ -29,7 +28,6 @@ const useApplicationData = () => {
 
       axios.get('/api/topics')
       .then(response => {
-        console.log('topics', response.data);  // Log the response to see the data
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: response.data });
       })
       .catch(error => {
@@ -42,7 +40,6 @@ const useApplicationData = () => {
     console.log(`Fetching photos for topic: ${topicId}`); 
     axios.get(`http://localhost:8001/api/topics/photos/${topicId}`)
     .then(response => {
-      console.log('photosbytopic', response.data);  // Log the response to see the data
       dispatch({ type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: response.data });
     })
     .catch(error => {
@@ -58,11 +55,6 @@ const useApplicationData = () => {
       });
  
   };
-
-
-  // const fetchSimilarPhotos = (photoId) => {
-  //   return photosData.filter(photo => photo.id !== photoId);
-  // };
 
   const handleOpenModal = (photo) => {
     dispatch({

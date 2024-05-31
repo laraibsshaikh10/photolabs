@@ -61,7 +61,6 @@ PhotoDetailsModal.propTypes = {
     username: PropTypes.string,
     userLocation: PropTypes.string
   }),
-  photosData: PropTypes.arrayOf(PropTypes.object).isRequired,
   favourites: PropTypes.arrayOf(PropTypes.object).isRequired,
   toggleFavourite: PropTypes.func.isRequired,
   onPhotoClick: PropTypes.func.isRequired

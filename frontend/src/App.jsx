@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import TopNavigation from 'components/TopNavigationBar';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
@@ -24,11 +23,6 @@ const App = () => {
   return (
 
     <div className="App">
-      {/* <TopNavigation 
-        topics={topicsData}
-        fetchPhotosByTopic={fetchPhotosByTopic} */}
-      {/* /> */}
-     
 
       <HomeRoute 
         onPhotoClick = {handleOpenModal} 
@@ -46,6 +40,7 @@ const App = () => {
         favourites={favourites} 
         toggleFavourite={toggleFavourite} 
         onPhotoClick={handleOpenModal} 
+        
        />
     </div>
   );
