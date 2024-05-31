@@ -66,6 +66,14 @@ npm start
 - The client side server runs on port 3000
 - The API server runs on port 8001
 
+## Screenshots
+!["Homepage"](https://github.com/laraibsshaikh10/photolabs/blob/main/docs/Homepage.png?raw=true)
+
+!["Liked Photos"](https://github.com/laraibsshaikh10/photolabs/blob/main/docs/likedPhotos.png?raw=true)
+
+!["Modal Similar Photos"](https://github.com/laraibsshaikh10/photolabs/blob/main/docs/modalSimilarPhotos.png?raw=true)
+
+
 ## Author
 - Lighthouse Labs provided the original base code
 - Laraib Shaikh
