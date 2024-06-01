@@ -10,7 +10,7 @@ const initialState = {
   similarPhotos: [],
   favourites: [],
   photosData: [],
-  topicsData:[]
+  topicsData: []
 };
 
 const useApplicationData = () => {
@@ -26,7 +26,7 @@ const useApplicationData = () => {
       });
 
 
-      axios.get('/api/topics')
+    axios.get('/api/topics')
       .then(response => {
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: response.data });
       })
@@ -37,23 +37,23 @@ const useApplicationData = () => {
 
 
   const fetchPhotosByTopic = (topicId) => {
-    console.log(`Fetching photos for topic: ${topicId}`); 
+    console.log(`Fetching photos for topic: ${topicId}`);
     axios.get(`http://localhost:8001/api/topics/photos/${topicId}`)
-    .then(response => {
-      dispatch({ type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: response.data });
-    })
-    .catch(error => {
-      console.error('Error occurred while fetching photos by their topic:', error);
-    });
-  }
+      .then(response => {
+        dispatch({ type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: response.data });
+      })
+      .catch(error => {
+        console.error('Error occurred while fetching photos by their topic:', error);
+      });
+  };
 
   const toggleFavourite = (photoId) => {
-      const isFavourite = state.favourites.includes(photoId);
-      dispatch({
-        type: isFavourite? ACTIONS.FAV_PHOTO_REMOVED: ACTIONS.FAV_PHOTO_ADDED,
-        payload: photoId
-      });
- 
+    const isFavourite = state.favourites.includes(photoId);
+    dispatch({
+      type: isFavourite ? ACTIONS.FAV_PHOTO_REMOVED : ACTIONS.FAV_PHOTO_ADDED,
+      payload: photoId
+    });
+
   };
 
   const handleOpenModal = (photo) => {
@@ -65,9 +65,9 @@ const useApplicationData = () => {
         profilePic: photo.user.profile,
         username: photo.user.username,
         userLocation: `${photo.location.city}, ${photo.location.country}`,
-        similar_photos: photo.similar_photos 
+        similar_photos: photo.similar_photos
       }
-    })
+    });
 
   };
 
@@ -75,18 +75,18 @@ const useApplicationData = () => {
     dispatch({
       type: ACTIONS.CLOSE_PHOTO_MODAL
     });
- 
+
   };
 
   return {
-    
+
     state,
     handleOpenModal,
     toggleFavourite,
     fetchPhotosByTopic,
     handleCloseModal
 
-  }
+  };
 };
 
 export default useApplicationData;

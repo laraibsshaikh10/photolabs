@@ -3,24 +3,24 @@ import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
 
-const PhotoList = ({photos=[], favourites=[], toggleFavourite, onPhotoClick}) => {
+const PhotoList = ({ photos = [], favourites = [], toggleFavourite, onPhotoClick }) => {
   console.log('photos', photos);
   return (
     <ul className="photo-list">
-       {photos.map((photo) => (
-      
-      <PhotoListItem
+      {photos.map((photo) => (
 
-        key={photo.id}
-        photo={photo}
-        isFavourite={favourites.some(fav => fav.id === photo.id)}
-        toggleFavourite={toggleFavourite}
-        onPhotoClick={onPhotoClick}
+        <PhotoListItem
 
-      />
-      
+          key={photo.id}
+          photo={photo}
+          isFavourite={favourites.some(fav => fav.id === photo.id)}
+          toggleFavourite={toggleFavourite}
+          onPhotoClick={onPhotoClick}
+
+        />
+
       ))}
-      
+
     </ul>
   );
 };

@@ -7,7 +7,7 @@ export const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   SET_PHOTOS_BY_TOPIC: 'SET_PHOTOS_BY_TOPIC'
-}
+};
 
 function reducer(state, action) {
   switch (action.type) {
@@ -20,7 +20,7 @@ function reducer(state, action) {
     case ACTIONS.FAV_PHOTO_REMOVED:
       return {
         ...state,
-        favourites: state.favourites.filter(id => id !==action.payload)
+        favourites: state.favourites.filter(id => id !== action.payload)
       };
 
     case ACTIONS.SET_PHOTO_DATA:
@@ -31,7 +31,7 @@ function reducer(state, action) {
 
     case ACTIONS.SET_PHOTOS_BY_TOPIC:
       return {
-      ...state,
+        ...state,
         photosData: action.payload // Assuming you want to replace photosData with the new set
       };
 
@@ -60,10 +60,10 @@ function reducer(state, action) {
         ...state,
         isModalOpen: false,
         selectedPhoto: null
-      }
+      };
 
 
-    
+
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
