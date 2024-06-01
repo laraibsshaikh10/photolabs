@@ -7,7 +7,7 @@ import reducer, { ACTIONS } from "./useReducerApplicationData";
 const initialState = {
   isModalOpen: false,
   selectedPhoto: null,
-  similarPhotos: [],
+  similar_photos: [],
   favourites: [],
   photosData: [],
   topicsData: []
@@ -37,7 +37,6 @@ const useApplicationData = () => {
 
 
   const fetchPhotosByTopic = (topicId) => {
-    console.log(`Fetching photos for topic: ${topicId}`);
     axios.get(`http://localhost:8001/api/topics/photos/${topicId}`)
       .then(response => {
         dispatch({ type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: response.data });
@@ -47,13 +46,21 @@ const useApplicationData = () => {
       });
   };
 
-  const toggleFavourite = (photoId) => {
-    const isFavourite = state.favourites.includes(photoId);
+  // const toggleFavourite = (photoId) => {
+  //   const isFavourite = state.favourites.includes(photoId);
+  //   dispatch({
+  //     type: isFavourite ? ACTIONS.FAV_PHOTO_REMOVED : ACTIONS.FAV_PHOTO_ADDED,
+  //     payload: photoId
+  //   });
+
+  // };
+
+  const toggleFavourite = (photo) => {
+    const isFavourite = state.favourites.some(fav => fav.id === photo.id);
     dispatch({
       type: isFavourite ? ACTIONS.FAV_PHOTO_REMOVED : ACTIONS.FAV_PHOTO_ADDED,
-      payload: photoId
+      payload: photo
     });
-
   };
 
   const handleOpenModal = (photo) => {

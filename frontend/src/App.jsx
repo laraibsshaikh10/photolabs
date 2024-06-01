@@ -10,7 +10,7 @@ const App = () => {
     state: {
       isModalOpen,
       selectedPhoto,
-      similarPhotos,
+      similar_photos,
       favourites,
       photosData,
       topicsData

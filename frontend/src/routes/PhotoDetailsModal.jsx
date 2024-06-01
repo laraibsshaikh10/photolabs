@@ -11,8 +11,9 @@ const PhotoDetailsModal = ({ isOpen, onClose, photo, favourites, toggleFavourite
   if (!isOpen || !photo) {
     return null;
   }
-  console.log("Modal received photo details:", photo);
-  console.log('Favourites', favourites);
+
+  const isPhotoFav = favourites.some(fav => fav.id === photo.id);
+
 
   return (
     <div className="photo-details-modal">
@@ -24,7 +25,7 @@ const PhotoDetailsModal = ({ isOpen, onClose, photo, favourites, toggleFavourite
       <div className="modal-photo">
         <PhotoFavButton
           photo={photo}
-          isFavourite={favourites.some(fav => fav.id === photo.id)}
+          isFavourite={isPhotoFav}
           toggleFavourite={toggleFavourite}
         />
         <img src={photo.url} alt={photo.url} className="photo-details-image" />

@@ -41,12 +41,24 @@ function reducer(state, action) {
         topicsData: action.payload
       };
 
+    // case ACTIONS.SELECT_PHOTO:
+    //   const similar_photos = state.photosData.find(photo => photo.id === action.payload.id).similar_photos;
+    //   similar_photos.action.payload = similar_photos;
+    //   return {
+    //     ...state,
+    //     selectedPhoto: action.payload,
+    //     similar_photos: state.photosData.filter(photo => photo.id !== action.payload.id),
+    //     isModalOpen: true
+    //   };
+
+
     case ACTIONS.SELECT_PHOTO:
+      const selectedPhoto = action.payload;
+      const similarPhotos = state.photosData.filter(photo => photo.id !== selectedPhoto.id);
       return {
         ...state,
-        selectedPhoto: action.payload,
-        similarPhotos: state.photosData.filter(photo => photo.id !== action.payload.id),
-        isModalOpen: true
+        selectedPhoto: { ...selectedPhoto, similar_photos: similarPhotos },
+        isModalOpen: true,
       };
 
     case ACTIONS.DISPLAY_PHOTO_DETAILS:
