@@ -6,7 +6,6 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = ({ fetchPhotosByTopic, photosData, topicsData, onPhotoClick, favourites, toggleFavourite }) => {
   
-  
   return (
     <div className="home-route">
       {/* Insert React */}

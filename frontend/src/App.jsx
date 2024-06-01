@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
@@ -10,7 +10,7 @@ const App = () => {
   state: {
     isModalOpen,
     selectedPhoto,
-    similarPhotos,
+    similar_photos,
     favourites,
     photosData,
     topicsData

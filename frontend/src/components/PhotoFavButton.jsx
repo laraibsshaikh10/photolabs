@@ -5,15 +5,15 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton({ photo, isFavourite, toggleFavourite }) {
   return (
-   
-   <div className={`photo-fav-button ${isFavourite ? 'photo-fav-button__active' : ''}`}
-    onClick={() => toggleFavourite(photo)}
-    aria-label={isFavourite ? 'Remove from favourites' : 'Add to favourites'}>
+
+    <div className={`photo-fav-button ${isFavourite ? 'photo-fav-button__active' : ''}`}
+      onClick={() => toggleFavourite(photo)}
+      aria-label={isFavourite ? 'Remove from favourites' : 'Add to favourites'}>
       <div className="photo-list__fav-icon-svg" >
 
-    <FavIcon selected={isFavourite}/>
+        <FavIcon selected={isFavourite} />
+      </div>
     </div>
-</div>
   );
 };
 

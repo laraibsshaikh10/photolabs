@@ -7,7 +7,6 @@ const TopNavigation = ({topics, favourites, fetchPhotosByTopic}) => {
   const favCount = favourites ? favourites.length : 0;
 
   const handleClickTopic = (topicId)=> {
-    console.log(`Topic clicked: ${topicId}`);
     fetchPhotosByTopic(topicId);
   }
 

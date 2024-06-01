@@ -42,10 +42,13 @@ function reducer(state, action) {
       };
 
     case ACTIONS.SELECT_PHOTO:
+      const similar_photos = state.photosData.find(photo => photo.id === action.payload.id).similar_photos;
+      action.payload.similar_photos = similar_photos;
+
       return {
         ...state,
         selectedPhoto: action.payload,
-        similarPhotos: state.photosData.filter(photo => photo.id !== action.payload.id),
+        similar_photos: state.photosData.filter(photo => photo.id !== action.payload.id),
         isModalOpen: true
       };
 
