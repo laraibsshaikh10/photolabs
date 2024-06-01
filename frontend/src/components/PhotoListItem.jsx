@@ -13,7 +13,7 @@ const PhotoListItem = ({ photo, isFavourite, toggleFavourite, onPhotoClick }) =>
 
   return (
     <div className="photo-list__item">
-
+      
 
       <div className="photo-list-photo">
         <PhotoFavButton
@@ -21,7 +21,11 @@ const PhotoListItem = ({ photo, isFavourite, toggleFavourite, onPhotoClick }) =>
           isFavourite={isFavourite}
           toggleFavourite={toggleFavourite}
         />
-        <img src={urls.regular} alt={`Photo ${id}`} className="photo-list__image" onClick={handlePhotoClick}/>
+        <img src={urls.regular} 
+          alt={`Photo ${id}`}         
+          className="photo-list__image" onClick={handlePhotoClick} 
+          onClick={handlePhotoClick}
+        />
       </div>
 
       <div className="photo-list__user-details">

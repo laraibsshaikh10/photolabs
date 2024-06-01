@@ -53,12 +53,14 @@ function reducer(state, action) {
 
 
     case ACTIONS.SELECT_PHOTO:
-      const selectedPhoto = action.payload;
-      const similarPhotos = state.photosData.filter(photo => photo.id !== selectedPhoto.id);
+      const similar_photos = state.photosData.find(photo => photo.id === action.payload.id).similar_photos;
+      action.payload.similar_photos = similar_photos;
+
       return {
         ...state,
-        selectedPhoto: { ...selectedPhoto, similar_photos: similarPhotos },
-        isModalOpen: true,
+        selectedPhoto: action.payload,
+        similar_photos: state.photosData.filter(photo => photo.id !== action.payload.id),
+        isModalOpen: true
       };
 
     case ACTIONS.DISPLAY_PHOTO_DETAILS:

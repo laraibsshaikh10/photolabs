@@ -1,4 +1,3 @@
-import React from "react";
 import { useReducer, useEffect } from "react";
 import axios from "axios";
 import reducer, { ACTIONS } from "./useReducerApplicationData";
@@ -53,6 +52,15 @@ const useApplicationData = () => {
   //     payload: photoId
   //   });
 
+  // };
+
+  // const toggleFavourite = (photoId) => {
+  //     const isFavourite = state.favourites.includes(photoId);
+  //     dispatch({
+  //       type: isFavourite? ACTIONS.FAV_PHOTO_REMOVED: ACTIONS.FAV_PHOTO_ADDED,
+  //       payload: photoId
+  //     });
+ 
   // };
 
   const toggleFavourite = (photo) => {
