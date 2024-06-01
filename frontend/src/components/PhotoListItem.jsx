@@ -24,7 +24,7 @@ const PhotoListItem = ({ photo, isFavourite, toggleFavourite, onPhotoClick }) =>
         <img src={urls.regular} 
           alt={`Photo ${id}`}         
           className="photo-list__image" onClick={handlePhotoClick} 
-          onClick={handlePhotoClick}
+      
         />
       </div>
 
