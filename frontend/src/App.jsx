@@ -3,7 +3,6 @@ import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
-
 const App = () => {
 
  const {
@@ -13,25 +12,38 @@ const App = () => {
     similar_photos,
     favourites,
     photosData,
-    topicsData
+    topicsData,
+    likedPhoto,
+    showLikedPhotos
   },
   fetchPhotosByTopic,
   handleOpenModal,
   toggleFavourite,
-  handleCloseModal
+  handleCloseModal,
+  toggleLikedPhoto,
+  toggleLikedPhotosDisplay
  } = useApplicationData();
+
+ const favCount = favourites.length;
+console.log('fav', favourites)
   return (
 
     <div className="App">
 
       <HomeRoute 
         onPhotoClick = {handleOpenModal} 
+        showLikedPhotos={showLikedPhotos}
         favourites={favourites} 
         toggleFavourite={toggleFavourite}
         photosData={photosData} 
         topicsData={topicsData} 
         fetchPhotosByTopic={fetchPhotosByTopic}
       />
+      {/* <FavBadge count={favCount} 
+        toggleLikedPhotosDisplay={toggleLikedPhotosDisplay} />
+        {showLikedPhotos && <LikedPhotoList likedPhotos={favourites} />} */}
+
+
      
       <PhotoDetailsModal 
         isOpen={isModalOpen} 

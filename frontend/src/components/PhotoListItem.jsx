@@ -20,6 +20,7 @@ const PhotoListItem = ({photo, isFavourite, toggleFavourite, onPhotoClick}) => {
           photo={photo}
           isFavourite={isFavourite}
           toggleFavourite={toggleFavourite}
+          
         />
         <img src={urls.regular} 
           alt={`Photo ${id}`}         
@@ -29,8 +30,9 @@ const PhotoListItem = ({photo, isFavourite, toggleFavourite, onPhotoClick}) => {
       </div>
       
       <div className="photo-list__user-details">
+        {user.profile && (
         <img src={user.profile} alt={`${user.username}'s profile`} className="photo-list__user-profile"/>
-      
+        )}
         <div className="photo-list__user-info">
           <h2 className="photo-list__username"> {user.username}</h2>
           <p className="photo-list__user-location"> {location.city}, {location.country}</p>

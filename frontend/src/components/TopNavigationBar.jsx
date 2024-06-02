@@ -1,14 +1,15 @@
-import React,{useState, useEffect} from 'react';
+import React from 'react';
 import TopicList from './TopicList';
 import '../styles/TopNavigationBar.scss';
 import FavBadge from './FavBadge';
 
-const TopNavigation = ({topics, favourites, fetchPhotosByTopic}) => {
+const TopNavigation = ({topics, favourites, fetchPhotosByTopic, toggleLikedPhotosDisplay}) => {
   const favCount = favourites ? favourites.length : 0;
 
   const handleClickTopic = (topicId)=> {
     fetchPhotosByTopic(topicId);
   }
+
 
   return (
     <div className="top-nav-bar">
@@ -23,8 +24,10 @@ const TopNavigation = ({topics, favourites, fetchPhotosByTopic}) => {
         onClickTopic={handleClickTopic} 
         fetchPhotosByTopic={fetchPhotosByTopic}
       />
+
       <FavBadge 
         count={favCount}
+        toggleLikedPhotosDisplay={toggleLikedPhotosDisplay}
       />
     </div>
   )

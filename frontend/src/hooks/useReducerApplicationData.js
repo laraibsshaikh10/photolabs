@@ -1,3 +1,5 @@
+import { act } from "react";
+
 /* insert app levels actions below */
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
@@ -6,7 +8,10 @@ export const ACTIONS = {
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
-  SET_PHOTOS_BY_TOPIC: 'SET_PHOTOS_BY_TOPIC'
+  SET_PHOTOS_BY_TOPIC: 'SET_PHOTOS_BY_TOPIC',
+  LIKED_PHOTO_ADDED: 'LIKED_PHOTO_ADDED',
+  LIKED_PHOTO_REMOVED: 'LIKED_PHOTO_REMOVED',
+  TOGGLE_LIKED_PHOTOS: 'TOGGLE_LIKED_PHOTOS'
 }
 
 function reducer(state, action) {
@@ -20,7 +25,7 @@ function reducer(state, action) {
     case ACTIONS.FAV_PHOTO_REMOVED:
       return {
         ...state,
-        favourites: state.favourites.filter(id => id !==action.payload)
+        favourites: state.favourites.filter(photo => photo.id !==action.payload.id)
       };
 
     case ACTIONS.SET_PHOTO_DATA:
@@ -64,8 +69,17 @@ function reducer(state, action) {
         isModalOpen: false,
         selectedPhoto: null
       }
-
-
+  
+    // case ACTIONS.LIKED_PHOTO_ADDED:
+    //   return {
+    //     ...state,
+    //     likedPhotos: [...state.likedPhotos, action.payload], // Adding the photo
+    //   };
+    // case ACTIONS.LIKED_PHOTO_REMOVED:
+    //   return {
+    //     ...state,
+    //     likedPhotos: state.likedPhotos.filter(photo => photo.id !== action.payload.id), // Removing the photo
+    //   };
     
     default:
       throw new Error(

@@ -11,7 +11,7 @@ const PhotoDetailsModal = ({ isOpen, onClose, photo, favourites, toggleFavourite
   if (!isOpen || !photo) {
     return null;
   }
-
+console.log('favourites', favourites);
   const isPhotoFav = favourites.some(fav => fav.id === photo.id);
 
 

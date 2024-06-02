@@ -11,9 +11,11 @@ import '../styles/FavBadge.scss';
 //   ) 
 // };
 
-const FavBadge = ({ count }) => {
+const FavBadge = ({ count, toggleLikedPhotosDisplay }) => {
   return (
-    <div className='fav-badge'>
+    <div className='fav-badge' onClick={toggleLikedPhotosDisplay} 
+      role="button" tabIndex="0" aria-label="Show liked photos"
+      >
       <FavIcon selected={true}/>
       {count > 0 && <div className="fav-badge__count"><span>{count}</span> 
       </div>}
