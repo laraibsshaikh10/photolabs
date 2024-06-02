@@ -20,7 +20,7 @@ function reducer(state, action) {
     case ACTIONS.FAV_PHOTO_REMOVED:
       return {
         ...state,
-        favourites: state.favourites.filter(id => id !== action.payload)
+        favourites: state.favourites.filter(photo => photo.id !== action.payload.id)
       };
 
     case ACTIONS.SET_PHOTO_DATA:
