@@ -10,7 +10,7 @@ const initialState = {
   favourites: [],
   photosData: [],
   topicsData:[],
-  likedPhoto: [],
+  // likedPhoto: [],
   showLikedPhotos: false
 };
 
@@ -59,20 +59,24 @@ const useApplicationData = () => {
     
   };
 
-  const toggleLikedPhoto = (photo) => {
-    const isLiked = state.likedPhotos.some((likedPhoto) => likedPhoto.id === photo.id);
+  // const toggleLikedPhoto = (photo) => {
+  //   const isLiked = state.likedPhotos.some((likedPhoto) => likedPhoto.id === photo.id);
 
-    // Dispatch an action to add/remove the liked photo
-    dispatch({
-      type: isLiked ? ACTIONS.LIKED_PHOTO_REMOVED : ACTIONS.LIKED_PHOTO_ADDED,
-      payload: photo,
-    });
-  };
+  //   // Dispatch an action to add/remove the liked photo
+  //   dispatch({
+  //     type: isLiked ? ACTIONS.LIKED_PHOTO_REMOVED : ACTIONS.LIKED_PHOTO_ADDED,
+  //     payload: photo,
+  //   });
+  // };
 
   const toggleLikedPhotosDisplay = () => {
+    console.log("Toggling liked photos display");
+
     dispatch({ type: ACTIONS.TOGGLE_LIKED_PHOTOS });
 
   };
+  console.log(toggleLikedPhotosDisplay);
+
 
   const handleOpenModal = (photo) => {
     dispatch({
@@ -103,7 +107,7 @@ const useApplicationData = () => {
     toggleFavourite,
     fetchPhotosByTopic,
     handleCloseModal,
-    toggleLikedPhoto,
+    // toggleLikedPhoto,
     toggleLikedPhotosDisplay
 
   }

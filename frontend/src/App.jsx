@@ -3,57 +3,54 @@ import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
+import FavBadge from 'components/FavBadge';
+import PhotoList from 'components/PhotoList';
 const App = () => {
 
- const {
-  state: {
-    isModalOpen,
-    selectedPhoto,
-    similar_photos,
-    favourites,
-    photosData,
-    topicsData,
-    likedPhoto,
-    showLikedPhotos
-  },
-  fetchPhotosByTopic,
-  handleOpenModal,
-  toggleFavourite,
-  handleCloseModal,
-  toggleLikedPhoto,
-  toggleLikedPhotosDisplay
- } = useApplicationData();
+  const {
+    state: {
+      isModalOpen,
+      selectedPhoto,
+      similar_photos,
+      favourites,
+      photosData,
+      topicsData,
+      // likedPhoto,
+      showLikedPhotos
+    },
+    fetchPhotosByTopic,
+    handleOpenModal,
+    toggleFavourite,
+    handleCloseModal,
+    // toggleLikedPhoto,
+    toggleLikedPhotosDisplay
+  } = useApplicationData();
 
- const favCount = favourites.length;
-console.log('fav', favourites)
+  const favCount = favourites.length;
   return (
 
     <div className="App">
 
-      <HomeRoute 
-        onPhotoClick = {handleOpenModal} 
+      <HomeRoute
+        onPhotoClick={handleOpenModal}
+        toggleLikedPhotosDisplay={toggleLikedPhotosDisplay}
         showLikedPhotos={showLikedPhotos}
-        favourites={favourites} 
+        favourites={favourites}
         toggleFavourite={toggleFavourite}
-        photosData={photosData} 
-        topicsData={topicsData} 
+        photosData={photosData}
+        topicsData={topicsData}
         fetchPhotosByTopic={fetchPhotosByTopic}
       />
-      {/* <FavBadge count={favCount} 
-        toggleLikedPhotosDisplay={toggleLikedPhotosDisplay} />
-        {showLikedPhotos && <LikedPhotoList likedPhotos={favourites} />} */}
+  
+      <PhotoDetailsModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        photo={selectedPhoto}
+        favourites={favourites}
+        toggleFavourite={toggleFavourite}
+        onPhotoClick={handleOpenModal}
 
-
-     
-      <PhotoDetailsModal 
-        isOpen={isModalOpen} 
-        onClose={handleCloseModal} 
-        photo={selectedPhoto} 
-        favourites={favourites} 
-        toggleFavourite={toggleFavourite} 
-        onPhotoClick={handleOpenModal} 
-        
-       />
+      />
     </div>
   );
 };

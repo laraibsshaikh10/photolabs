@@ -9,8 +9,8 @@ export const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   SET_PHOTOS_BY_TOPIC: 'SET_PHOTOS_BY_TOPIC',
-  LIKED_PHOTO_ADDED: 'LIKED_PHOTO_ADDED',
-  LIKED_PHOTO_REMOVED: 'LIKED_PHOTO_REMOVED',
+  // LIKED_PHOTO_ADDED: 'LIKED_PHOTO_ADDED',
+  // LIKED_PHOTO_REMOVED: 'LIKED_PHOTO_REMOVED',
   TOGGLE_LIKED_PHOTOS: 'TOGGLE_LIKED_PHOTOS'
 }
 
@@ -80,6 +80,13 @@ function reducer(state, action) {
     //     ...state,
     //     likedPhotos: state.likedPhotos.filter(photo => photo.id !== action.payload.id), // Removing the photo
     //   };
+
+    case ACTIONS.TOGGLE_LIKED_PHOTOS: // Handling action for toggling liked photos
+    console.log("Current showLikedPhotos state:", state.showLikedPhotos);
+    const newState = { ...state, showLikedPhotos: !state.showLikedPhotos };
+    console.log("Updated showLikedPhotos state:", newState.showLikedPhotos);
+
+      return newState;
     
     default:
       throw new Error(

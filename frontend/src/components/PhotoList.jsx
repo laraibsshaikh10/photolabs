@@ -1,13 +1,14 @@
 import React from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
+import PropTypes from 'prop-types';
 
 
 const PhotoList = ({photos=[], favourites=[], toggleFavourite, onPhotoClick, showLikedPhotos}) => {
-  // const displayPhotos = showLikedPhotos ? favourites : photos;
+  const displayPhotos = showLikedPhotos ? favourites : photos;
   return (
     <ul className="photo-list">
-       {photos.map((photo) => (
+       {displayPhotos.map((photo) => (
       
       <PhotoListItem
 
@@ -23,6 +24,22 @@ const PhotoList = ({photos=[], favourites=[], toggleFavourite, onPhotoClick, sho
       
     </ul>
   );
+};
+
+
+// Adding prop types for better type checking and documentation
+PhotoList.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.object),
+  favourites: PropTypes.arrayOf(PropTypes.object),
+  toggleFavourite: PropTypes.func.isRequired,
+  onPhotoClick: PropTypes.func.isRequired,
+  // showLikedPhotos: PropTypes.bool.isRequired,
+};
+
+// Adding default props for optional props
+PhotoList.defaultProps = {
+  photos: [],
+  favourites: [],
 };
 
 export default PhotoList;
